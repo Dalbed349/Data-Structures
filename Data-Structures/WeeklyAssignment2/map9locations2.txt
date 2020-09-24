@@ -1,0 +1,53 @@
+<h4 style="margin:0;padding:0;">Harlem Children&apos;s Zone Admin. Offices</h4><br>
+				  	    <b>125 - TWO FOR ONE - </b><br>
+						35 East 125 Street, 1st Floor Conference Room, 
+						<br>(@ Madison Avenue) 10035
+						<br>
+						<br>
+                        
+                        <div class="detailsBox"> 
+                        	O 2nd, S 3rd, Anniv. 4th &amp; BB 5th Sat. 
+                        </div>
+                         
+						<span style="color:darkblue; font-size:10pt;">
+                        <img src="../images/wheelchair.jpg" alt="Wheelchair Access" width="20" vspace="5" hspace="10" align="absmiddle">Wheelchair access
+                        </span><h4 style="margin:0;padding:0;">Peter Jay Sharpe Building</h4><br>
+				  	    <b>EAST HARLEM - East Harlem</b><br>
+						223 East 117th Street, 1st Floor Dining Room, 
+						<br>(Betw. 2nd &amp; 3rd Avenues) NY 10035
+						<br>
+						<br>
+                        
+                        <div class="detailsBox"> 
+                        	Living Sober 1st Tuesday. 
+                        </div>
+                         
+						<span style="color:darkblue; font-size:10pt;">
+                        <img src="../images/wheelchair.jpg" alt="Wheelchair Access" width="20" vspace="5" hspace="10" align="absmiddle">Wheelchair access
+                        </span><h4 style="margin:0;padding:0;"></h4><br>
+				  	    <b>GRUPO NUEVA VIDA - Grupo Nueva Vida</b><br>
+						2126 2nd Avenue, 1st Floor, 
+						<br>(Betw. 109th &amp; 110th Streets) NY 10029
+						<br>
+						<br>
+                        
+                        <div class="detailsBox"> 
+                        	Spanish speaking meetings. 
+                        </div>
+                         
+						<span style="color:darkblue; font-size:10pt;">
+                        <img src="../images/wheelchair.jpg" alt="Wheelchair Access" width="20" vspace="5" hspace="10" align="absmiddle">Wheelchair access
+                        </span><h4 style="margin:0;padding:0;">Veterans Residence</h4><br>
+				  	    <b>HARLEM 1 PM RECOVERY - Harlem 1 PM Recovery</b><br>
+						22 East 119th Street,  1st Floor Cafeteria, 
+						<br>(Betw. Madison &amp; 5th Avenues) NY 10035
+						<br>
+						<br>
+                        
+                        <div class="detailsBox"> 
+                        	ID REQUIRED TO ENTER BUILDING 
+                        </div>
+                         
+						<span style="color:darkblue; font-size:10pt;">
+                        <img src="../images/wheelchair.jpg" alt="Wheelchair Access" width="20" vspace="5" hspace="10" align="absmiddle">Wheelchair access
+                        </span>
