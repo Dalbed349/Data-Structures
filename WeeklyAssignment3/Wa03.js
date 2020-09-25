@@ -8,16 +8,17 @@ const fs = require('fs'),
       dotenv = require('dotenv');
 
 // TAMU api key
-dotenv.config();
+dotenv.config({path: '../.env'});
+
 const API_KEY = process.env.MY_SECRET;
-const API_URL = 'https://geoservices.tamu.edu/Services/Geocode/WebService/GeocoderWebServiceHttpNonParsed_V04_01.aspx'
+const API_URL = 'https://geoservices.tamu.edu/Services/Geocode/WebService/GeocoderWebServiceHttpNonParsed_V04_01.aspx';
 
 // let map9geo = 
 
 // geocode addresses
 let meetingsData = [];
 let address = fs.readFileSync('/home/ec2-user/environment/WeeklyAssignment2/map9locations3.json');
-let addresses = JSON.parse(address)
+let addresses = JSON.parse(address);
 
 //fs.readFileSync('/home/ec2-user/environment/WeeklyAssignment2/map9locations3.json'); //["63 Fifth Ave", "16 E 16th St", "2 W 13th St"]; ////Need to put read filesync here 
 
@@ -39,17 +40,19 @@ async.eachSeries(addresses, function(value, callback) {
         if (err){ throw err; }
 
         let tamuGeo = JSON.parse(body);
-        console.log(tamuGeo['OutputGeocodes'][0]['OutputGeocode']['Latitude']); //apiRequest); // TARGET WHAT U WANT
-        meetingsData.push(tamuGeo['InputAddress']);
-        let latlong = {
-         "LatLong" : [] 
+            console.log(tamuGeo['OutputGeocodes'][0]['OutputGeocode']['Latitude']); //apiRequest); // TARGET WHAT U WANT
             
-        };
+      
+        let latlong = [];
+       
         
-        latlong.LatLong.push(tamuGeo['OutputGeocodes'][0]['OutputGeocode']['Latitude']);
-        latlong.LatLong.push(tamuGeo['OutputGeocodes'][0]['OutputGeocode']['Longitude']);
-        meetingsData.push(latlong)
+        latlong.push(tamuGeo['OutputGeocodes'][0]['OutputGeocode']['Latitude']);
+        latlong.push(tamuGeo['OutputGeocodes'][0]['OutputGeocode']['Longitude']);
+        let tamuGeoFinal = new Object();
+        tamuGeoFinal.StreetAddress = tamuGeo['InputAddress'];
         
+        tamuGeoFinal.LatLong = latlong; 
+        meetingsData.push(tamuGeoFinal);
     });
 
     // sleep for a couple seconds before making the next request
@@ -57,7 +60,7 @@ async.eachSeries(addresses, function(value, callback) {
 }, 
     
     function() {
-    fs.writeFileSync('WeeklyAssignment3/map9geo.json', JSON.stringify(meetingsData));
+    fs.writeFileSync('map9geo.json', JSON.stringify(meetingsData));
     console.log('*** *** *** *** ***');
     console.log(`Number of meetings in this zone: ${meetingsData.length}`);
     console.log(meetingsData)

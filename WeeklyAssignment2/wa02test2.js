@@ -86,7 +86,7 @@ console.log(obj5)
 // var text4 = [text3[0]] //, text3[1], text3[2], text3[3]]
 //console.log (text4[0])
 
-fs.writeFileSync('/home/ec2-user/environment/WeeklyAssignment2/map9locations3.txt', obj5.join('\n'));
+fs.writeFileSync('/home/ec2-user/environment/WeeklyAssignment2/map9locations3.json', JSON.stringify(obj5)); //obj5.join('\n'));
 
 
 // console.log(text4)
