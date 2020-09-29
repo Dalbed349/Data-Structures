@@ -3,8 +3,8 @@
    ### Draw a model for the AA meetings data to be stored in a database. 
 
 ## Part 2
-    ###Create Table in Database. 
-    Use **pg** module in node to add a table to database with SQL statements. 
+    ### Create Table in Database. 
+    Use ** pg ** module in node to add a table to database with SQL statements. 
     
     1. Working from **wa04a.js**. Require 'pg' and 'dotenv'. 
     2. Configure dotenv path with the following code: 
