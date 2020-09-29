@@ -1,9 +1,12 @@
 # Goal: 
 ## Part 1
    ### Draw a model for the AA meetings data to be stored in a database. 
+   
+    1. I tried to draw a representation of a normalized Database however I ended up confusing myself further.
+    2. The png that is uploaded shows the variables that I find to be relevant for this project. i.e. Meeting type, Meeting time, geolocation, and more. 
 
 ## Part 2
-    ### Create Table in Database. 
+   ### Create Table in Database. 
     Use ** pg ** module in node to add a table to database with SQL statements. 
     
     1. Working from **wa04a.js**. Require 'pg' and 'dotenv'. 
@@ -30,7 +33,7 @@
     
     
 ## Part 3 
-### Populate database. 
+   ### Populate database. 
     Use **pg** in node to add data to table created in part 2. 
     
     1. Working from **wa04b.js**. Require 'async', 'pg', 'dotenv'. 
