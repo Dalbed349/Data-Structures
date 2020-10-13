@@ -42,8 +42,8 @@ client.connect();
    var thisQuery = "SELECT Address, lat, long FROM aalocations WHERE lat<40.8;";
 ```
 
-5. Above code produces the result found in AAQuery.png. Address locations are only shown if their latitude is less than 40.8. 
-  6. Full capture of pg module to connect query to database: 
+
+  5. Full capture of pg module to connect query to database: 
 ```
 const client = new Client(db_credentials);
 client.connect();
@@ -60,7 +60,8 @@ client.query(thisQuery, (err, res) => {
     }
 });
 ```
-
+6. Above code produces the result found in AAQuery.png. Address locations are only shown if their latitude is less than 40.8. 
+![](AAQuery.PNG)
 
 ## Step 2: Write and execute a  [query](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html)  for Diary data in DynamoDB.
 
@@ -99,3 +100,4 @@ dynamodb.query(params, function(err, data) {
 ```
 
 5. The output of this query is found in ProcessBlogQuery.PNG. I filter by the first item on my primary key and it is returned. Still thinking about a better way to organize my blog by pk and sk. 
+![](ProcessBlogQuery.PNG)
