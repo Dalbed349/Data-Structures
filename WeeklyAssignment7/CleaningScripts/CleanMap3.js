@@ -19,6 +19,7 @@ aa.table = []
 
 let counter = 1;
 $('tr tr tr').each(function(i, outer_elem) {
+    if(i>0){
     var Address = new Object()
     Address.meetings_list = new Array
 
@@ -128,7 +129,7 @@ $('tr tr tr').each(function(i, outer_elem) {
     }) //2nd find 
 
     // aa.table.push(Address.meetings_list) // AH - works
-
+}
 }) //overall find (tr)
 
 // aa.table.push(Address)

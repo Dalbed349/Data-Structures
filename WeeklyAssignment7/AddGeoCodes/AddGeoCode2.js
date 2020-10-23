@@ -5,11 +5,11 @@ const fs = require('fs'),
       dotenv = require('dotenv');
       
 
-let GeoCodes = fs.readFileSync('/home/ec2-user/environment/WeeklyAssignment7/map9geo.json');
+let GeoCodes = fs.readFileSync('/home/ec2-user/environment/WeeklyAssignment7/Geocodes/map2geo.json');
 
 let GeoCode = JSON.parse(GeoCodes);
 
-let map1 = fs.readFileSync('/home/ec2-user/environment//WeeklyAssignment7/data/map1.json');
+let map1 = fs.readFileSync('/home/ec2-user/environment/WeeklyAssignment7/data/map2.json');
 
 let map1AddGeo = JSON.parse(map1);
 
@@ -40,7 +40,8 @@ for(let i =0; i<map1AddGeo.length; i++){
 console.log(map1AddGeo);
 
 
-fs.writeFileSync("./CombinedOutputs/Map1Combined.JSON", JSON.stringify(map1AddGeo))
+fs.writeFileSync("/home/ec2-user/environment/WeeklyAssignment7/CombinedOutputs/Map2Combined.json", JSON.stringify(map1AddGeo))
 
 
 //fs.writeFileSync('map9geo.json', JSON.stringify(meetingsData));
+

@@ -7,18 +7,23 @@ const fs = require('fs'),
       async = require('async'),
       dotenv = require('dotenv');
 
+    
 // TAMU api key
-dotenv.config({path: '../.env'});
+dotenv.config({path: '/home/ec2-user/environment/.env'});
 
 const API_KEY = process.env.MY_SECRET;
 const API_URL = 'https://geoservices.tamu.edu/Services/Geocode/WebService/GeocoderWebServiceHttpNonParsed_V04_01.aspx';
 
 // let map9geo = 
-
+for (let i = 1; i < 11; i++) {
 // geocode addresses
 let meetingsData = [];
-let aa = fs.readFileSync('/home/ec2-user/environment/WeeklyAssignment7/data/map1.json');
+let filename = '../CleaningScripts/test/cleanedData' + i 
 
+let aa = fs.readFileSync(filename+'.json');
+
+
+//'/WeeklyAssignment7/CleaningScripts/test/'+ filename
 
 
 let addresses = JSON.parse(aa);
@@ -55,7 +60,9 @@ async.eachSeries(addresses, function(value, callback) {
         tamuGeoFinal.StreetAddress = tamuGeo['InputAddress'];
         
         tamuGeoFinal.LatLong = latlong; 
-        meetingsData.push(tamuGeoFinal);
+        value.GeoCoord = latlong;
+        
+        meetingsData.push(value);
     });
 
     // sleep for a couple seconds before making the next request
@@ -63,7 +70,7 @@ async.eachSeries(addresses, function(value, callback) {
 }, 
     
     function() {
-    fs.writeFileSync('map9geo.json', JSON.stringify(meetingsData));
+    fs.writeFileSync(`map${i}geo.json`, JSON.stringify(meetingsData));
     console.log('*** *** *** *** ***');
     console.log(`Number of meetings in this zone: ${meetingsData.length}`);
     console.log(meetingsData)
@@ -71,4 +78,4 @@ async.eachSeries(addresses, function(value, callback) {
     // console.log(meetingsData);
     
 });
-
+}
