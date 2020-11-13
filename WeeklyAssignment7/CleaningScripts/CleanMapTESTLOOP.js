@@ -22,7 +22,7 @@ for (let i = 1; i < 11; i++) {
 
     let counter = 1;
     $('tr tr tr').each(function (i, outer_elem) {
-        if (i > 0) {
+        if (i > 0) {     // removes empty array at start 
 
             var Address = new Object()
             Address.meetings_list = new Array
