@@ -149,9 +149,9 @@ let aa = fs.readFileSync(filename+'.json');
 
 
 ### Part 3: Create and Populate PostgresSQL database. 
-File_a: /Database/1CreateDB.js
-File_b: /Database/2InsertIntoDB.js
-File_c:  /Database/3CallDB.js
+File_a: /Database/1CreateDB.js <br/>
+File_b: /Database/2InsertIntoDB.js <br/>
+File_c:  /Database/3CallDB.js <br/>
 
 1. Load dependencies, important = 'pg' 
 ``const { Client } = require('pg');
