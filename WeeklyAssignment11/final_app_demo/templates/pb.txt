@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Dallas' Process Blog</title>
+  <meta name="description" content="Dallas' Process Blog">
+  <meta name="author" content="Dallas Alberti">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+
+<script>
+var data = {{{pbdata}}} ; 
+
+var myTable = '<table><thead><tr><th>Date</th><th>topic</th><th>Sleep Hours</th><th>Buy Coffee</th><th>Make Coffee</th></tr></thead><tbody>';
+
+for (var i=0; i < data.length; i++) {
+	myTable += '<tr>';
+	myTable += '<td>' + data[i].date.S + '</td>';
+	myTable += '<td>' + data[i].topicOfTheDay.S + '</td>';
+	myTable += '<td>' + data[i].sleepHours.N + '</td>';
+	myTable += '<td>' + data[i].buyCoffee.N + '</td>';
+	myTable += '<td>' + data[i].makeCoffee.N + '</td>';
+	myTable += '</tr>';
+
+}
+
+myTable += '</body></table>'
+
+$(window).on('load', function() {
+  $("#myEntries").html(myTable)
+});
+
+</script>
+
+<h3>Dallas' process blog</h3>
+
+<div id='myEntries'></div>
+
+<p><span class="blinking">My life is not very interesting!</span></p>
+
+</body>
+</html>
