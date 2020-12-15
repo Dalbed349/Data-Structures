@@ -14,12 +14,24 @@ Using:
 * [Leaflet](https://leafletjs.com/examples/quick-start/)  
 * [Moment](https://momentjs.com/timezone/docs/) (for working with Time Zones)
 
+
+Process: 
+
+
+
+
 ### Final Assignment 2: Sensor Data
 
 Using: 
 
 * [D3.js (version 3)](https://github.com/d3/d3-3.x-api-reference/blob/master/API-Reference.md)
 * [Handlebars](https://handlebarsjs.com/) (for [templating](https://github.com/visualizedata/data-structures/blob/master/final_code_demo/templates/sensor.txt))
+
+
+Process: 
+
+
+
 
 ```javascript
 app.get('/temperature', function(req, res) {
@@ -54,6 +66,13 @@ Using:
 * [JQuery](https://jquery.com/)  
 * [Handlebars](https://handlebarsjs.com/) for the [template](https://github.com/visualizedata/data-structures/blob/master/final_code_demo/templates/pb.txt)  
 * [AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-node-js/)  
+
+Process: 
+
+
+
+
+
 
 ```javascript
 app.get('/processblog', function(req, res) {
