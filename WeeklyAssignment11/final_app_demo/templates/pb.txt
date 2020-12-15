@@ -42,7 +42,7 @@ $(window).on('load', function() {
 
 <div id='myEntries'></div>
 
-<p><span class="blinking">My life is not very interesting!</span></p>
+<p><span class="blinking">I wish I could add some more entries in here!</span></p>
 
 </body>
 </html>

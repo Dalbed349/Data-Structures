@@ -66,13 +66,17 @@ var margin = {top: 40, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var formatPercent = d3.format(".0%");
+<!-- var formatPercent = d3.format(".0%"); -->
+var formatPercent = d3.format(".0f");
 
 var x = d3.scale.ordinal()
+    .domain(data.map(function(d) { return d.sensorvalue; }))
     .rangeRoundBands([0, width], .1);
 
 var y = d3.scale.linear()
+    .domain([0, d3.max(data, function(d) { return parseInt(d.num_obs); })])
     .range([height, 0]);
+
 
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -87,7 +91,8 @@ var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function(d) {
-    return "<strong>Percentage:</strong> <span style='color:red'>" + formatPercent(d.num_obs) + "</span>";
+    return "<strong>Temperature:</strong> <span style='color:red'>"+ formatPercent(d.sensorvalue) +"</span>"+ "<strong>Count:</strong> <span style='color:red'>"+formatPercent(d.num_obs)+"</span>"
+    
   })
 
 var svg = d3.select("body").append("svg")
@@ -95,17 +100,23 @@ var svg = d3.select("body").append("svg")
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
 
 svg.call(tip);
-
-  x.domain(data.map(function(d) { return d.sensorday; }));
-  y.domain([0, d3.max(data, function(d) { return d.num_obs; })]);
 
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
 
+    .call(xAxis)
+    .selectAll("text")
+    .attr("y", 0)
+    .attr("x", 9)
+    .attr("dy", ".35em")
+    .attr("transform", "rotate(90)")
+    .style("text-anchor", "start");
+    
+    
   svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
@@ -114,13 +125,13 @@ svg.call(tip);
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Percentage");
+      .text("Count of Occurances");
 
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.sensorday); })
+      .attr("x", function(d) { return x(d.sensorvalue); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.num_obs); })
       .attr("height", function(d) { return height - y(d.num_obs); })
