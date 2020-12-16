@@ -114,6 +114,8 @@ var thisQuery =  `SELECT address, geocoord, building_name, secondary_address,mee
         }
     });
 ``` 
+![](FinalAssignment1.JPG)
+
 ### Final Assignment 2: Sensor Data
 
 Using: 
