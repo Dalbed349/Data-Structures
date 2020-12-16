@@ -123,35 +123,38 @@ Using:
 
 
 Process: 
-
-
-
-
-```javascript
+1. Similar to Final Assignment 1, a .get method was used so that requests to /temperature would access the sensorData table in the AWS RDS Postgress database. 
+``` 
 app.get('/temperature', function(req, res) {
-
-    // Connect to the AWS RDS Postgres database
     const client = new Pool(db_credentials);
+```
+2.  An SQL query was made to extract necessary values. For this assignment I wanted to plot the number of occurrences for each unique temperature reading. This meant that the query needed select the  sensorValue and COUNT the number of occurrences. In order to deal with extreme values beyond acceptable range a WHERE statement was introduced. The data points were grouped and ordered by value. 
 
+```
     // SQL query 
-    var q = `SELECT EXTRACT(DAY FROM sensorTime) as sensorday,
-             AVG(sensorValue::int) as num_obs
-             FROM sensorData
-             GROUP BY sensorday
-             ORDER BY sensorday;`;
+var q = `SELECT sensorValue,
+        COUNT (*) as num_obs
+        FROM sensorData 
+        WHERE (sensorValue > 70 AND sensorValue < 90)
+        GROUP BY sensorValue
+        ORDER BY sensorValue;`;
 
-    client.connect();
+        client.connect();
     client.query(q, (qerr, qres) => {
         if (qerr) { throw qerr }
         else {
             res.end(template({ sensordata: JSON.stringify(qres.rows)}));
+            console.log(template({ sensordata: JSON.stringify(qres.rows)}))
             client.end();
             console.log('1) responded to request for sensor graph');
         }
     });
 }); 
-```
 
+```
+3. The response from this query was stringified and read to a handlebars template as sensordata. In /templates/sensor.txt D3 was used to visualize the query. On line 63 of this file data was set to equal sensordata. This is dynamic and will always update as the database is updated with new sensor data. 
+4. For the final bar chart visualization, temperature reading values are placed along the x axis and their count is placed along the y axis. 
+![](SensorFinal.JPG) 
 
 ### Final Assignment 3: Process Blog
 
