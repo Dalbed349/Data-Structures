@@ -130,6 +130,7 @@ var thisQuery =  `SELECT address, geocoord, building_name, secondary_address,mee
         }
     });
 ``` 
+
 ![](/FinalAssignments1,2,3/final_app_demo/FinalAssignment1.JPG)
 
 ### Final Assignment 2: Sensor Data
@@ -172,7 +173,7 @@ var q = `SELECT sensorValue,
 ```
 3. The response from this query was stringified and read to a handlebars template as sensordata. In /templates/sensor.txt D3 was used to visualize the query. On line 63 of this file data was set to equal sensordata. This is dynamic and will always update as the database is updated with new sensor data. 
 4. For the final bar chart visualization, temperature reading values are placed along the x axis and their count is placed along the y axis. 
-![](SensorFinal.JPG) 
+![](/FinalAssignments1,2,3/final_app_demo/SensorFinal.JPG) 
 
 ### Final Assignment 3: Process Blog
 
@@ -210,7 +211,7 @@ ExpressionAttributeValues: { // the query values
 4. Line 277 sets up the query function for the dynamodb and passes the params var from line 261. The JSON response is stringified and stored in a variable called pbdata. pbdata is passed to line 18 of the /public/pb.txt file and used to generate a simple HTML table. In the future this could be styled better and passed to visualization libraries such as D3 JS.
 5. Issues that still remain are trying to return more than one entry listed with the same primary key. This is an issue with how the database was constructed earlier in the semester and would be done differently in the future.
 
-![](FinalAssignment3.JPG)
+![](/FinalAssignments1,2,3/final_app_demo/FinalAssignment3.JPG)
 
 ```
     dynamodb.query(params, function(err, data) {
